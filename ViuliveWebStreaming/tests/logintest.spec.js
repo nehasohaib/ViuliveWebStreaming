@@ -9,12 +9,12 @@ test('logintest1',async({page})=> {
   await page.pause();
   const loginpageViuLive = new ViuLive(page);
   await loginpageViuLive.sign_in_button();
+  //await loginpageViuLive.submit_signin();
+  await loginpageViuLive.login_incorrect_email_or_password_error();
   await loginpageViuLive.submit_signin();
   await loginpageViuLive.login_email_error();  
   await loginpageViuLive.submit_signin();
   await loginpageViuLive.login_password_error();
   await loginpageViuLive.submit_signin();
-  // delay (3000);
-  
-  
+  await page.waitForTimeout(1000);
 });
